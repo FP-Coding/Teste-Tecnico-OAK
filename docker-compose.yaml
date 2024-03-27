@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  api:
+    container_name: oak_test_api
+    build: ./backend
+    # restart: unless-stopped
+    # command: "start"
+    depends_on:
+      - db
+    ports:
+      - 3001:3001
+    environment:
+      - DATABASE_URL=postgresql://root:password@db/OAK-test-database
+      - API_PORT=3001
+    networks:
+      - test-tecnico-oak
+
+  db:
+    container_name: oak_test_database
+    image: postgres:13.5
+    restart: unless-stopped
+    environment:
+        POSTGRES_USER: root
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: OAK-test-database
+        PGDATA: /data/postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - test-tecnico-oak
+
+networks:
+  test-tecnico-oak:
+    driver: bridge
