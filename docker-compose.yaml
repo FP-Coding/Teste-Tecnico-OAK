@@ -3,8 +3,8 @@ services:
   api:
     container_name: oak_test_api
     build: ./backend
-    # restart: unless-stopped
-    # command: "start"
+    restart: unless-stopped
+    command: "start"
     depends_on:
       - db
     ports:
