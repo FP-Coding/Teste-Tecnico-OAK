@@ -1,15 +1,14 @@
-import RegisterModal from '../components/Register.modal';
-import Table from '../components/Table';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Main from '../components/Main';
 
 function Home () {
 
   return (
-    <div className="flex flex-col items-center gap-12">
-      <h1 className='text-3xl text-center mb-4 text-blue-500'>
-      Hello World
-      </h1>
-      <Table/>
-      <RegisterModal/>
+    <div className="flex flex-col items-center gap-12 bg-[#111827] h-screen w-screen">
+      <Header/>
+      <Main />
+      <Footer/>
     </div>
 )
 }
